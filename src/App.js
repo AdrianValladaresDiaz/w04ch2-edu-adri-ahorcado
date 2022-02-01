@@ -1,7 +1,11 @@
 import { useState } from "react";
 import "./App.scss";
 import Letter from "./components/Letter/Letter";
+
 import UsedLetter from "./components/UsedLetter/UsedLetter";
+
+import GuessedLetters from "./components/GuessedLetters/GuessedLetters";
+
 /* import words from "./data/words"; */
 
 function App() {
@@ -68,12 +72,16 @@ function App() {
         </svg>
       </div>
       <ul className="guess-letters">
-        <li className="guess-letter empty"></li>
-        <li className="guess-letter">A</li>
-        <li className="guess-letter empty"></li>
-        <li className="guess-letter">A</li>
-        <li className="guess-letter empty"></li>
+        {solutionLetters.map((letter) => {
+          return (
+            <GuessedLetters
+              letter={letter}
+              key={`${letter.letter}-${Date.now().toString()}`}
+            ></GuessedLetters>
+          );
+        })}
       </ul>
+
       <section className="used-letters-container">
         <h2>Used letters</h2>
         <ul className="used-letters">
