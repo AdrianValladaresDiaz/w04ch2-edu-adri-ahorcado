@@ -1,0 +1,1 @@
+const words = ["aloha", "wololoo"];
