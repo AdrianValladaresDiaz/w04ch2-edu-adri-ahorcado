@@ -16,5 +16,8 @@
 
 # Component List
 
-- Letter
 - Hangman
+- Guessed letters
+- Used Letters
+- All letters
+- Game Result
