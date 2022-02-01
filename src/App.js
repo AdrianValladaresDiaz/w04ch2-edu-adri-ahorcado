@@ -15,10 +15,21 @@ function App() {
     })
   );
 
+  const [alphabetLetters, setAlphabetLetters] = useState(
+    alphabet.map((letter) => {
+      return { letter: letter, used: false };
+    })
+  );
+
   const letterOnClick = (letter) => {
-    const LetterFound = solutionLetters.find((e) => {
+    const clonedLetters = solutionLetters;
+    const letterFound = clonedLetters.filter((e) => {
       return e.letter === letter;
     });
+    letterFound.forEach((letterObj) => {
+      letterObj.status = true;
+    });
+    setSolutionLetters(clonedLetters);
   };
 
   return (
