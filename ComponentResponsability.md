@@ -17,4 +17,4 @@
 # Component List
 
 - Letter
-- |
+- Hangman

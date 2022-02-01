@@ -22,7 +22,7 @@ function App() {
   );
 
   const letterOnClick = (letter) => {
-    const clonedLetters = solutionLetters;
+    const clonedLetters = [...solutionLetters];
     const letterFound = clonedLetters.filter((e) => {
       return e.letter === letter;
     });
@@ -31,13 +31,12 @@ function App() {
     });
     setSolutionLetters(clonedLetters);
 
-    const cloneAlphabet = alphabetLetters;
+    const cloneAlphabet = [...alphabetLetters];
     const alphabetFound = cloneAlphabet.find((e) => {
       return e.letter === letter;
     });
     alphabetFound.used = true;
     setAlphabetLetters(cloneAlphabet);
-    console.log(cloneAlphabet);
   };
 
   return (
@@ -84,7 +83,7 @@ function App() {
           return (
             <Letter
               actionOnClick={letterOnClick}
-              letter={letter.letter}
+              letter={letter}
               key={`${letter.letter}-${Date.now().toString()}`}
             />
           );
