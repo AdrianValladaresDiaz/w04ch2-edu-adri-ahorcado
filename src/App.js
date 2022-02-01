@@ -1,18 +1,25 @@
 import { useState } from "react";
 import "./App.scss";
 import Letter from "./components/Letter/Letter";
-import words from "./data/words";
+/* import words from "./data/words"; */
 
 function App() {
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const alphabet = alpha.map((x) => String.fromCharCode(x));
-  const word = "acero".match(/.{1,1}/g);
+
+  const word = "acero".toUpperCase().match(/.{1,1}/g);
 
   const [solutionLetters, setSolutionLetters] = useState(
     word.map((w) => {
       return { letter: w, status: false };
     })
   );
+
+  const letterOnClick = (letter) => {
+    const LetterFound = solutionLetters.find((e) => {
+      return e.letter === letter;
+    });
+  };
 
   return (
     <>
@@ -57,6 +64,7 @@ function App() {
         {alphabet.map((letter) => {
           return (
             <Letter
+              actionOnClick={letterOnClick}
               letter={letter}
               key={`${letter}-${Date.now().toString()}`}
             />
