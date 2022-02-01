@@ -6,7 +6,6 @@ import words from "./data/words";
 function App() {
   const alpha = Array.from(Array(26)).map((e, i) => i + 65);
   const alphabet = alpha.map((x) => String.fromCharCode(x));
-
   const word = "acero".match(/.{1,1}/g);
 
   const [solutionLetters, setSolutionLetters] = useState(
@@ -14,8 +13,6 @@ function App() {
       return { letter: w, status: false };
     })
   );
-
-  console.log(solutionLetters);
 
   return (
     <>
@@ -58,7 +55,12 @@ function App() {
       <section className="game-result">You're dead!</section>
       <ul className="letters">
         {alphabet.map((letter) => {
-          return <Letter letter={letter} />;
+          return (
+            <Letter
+              letter={letter}
+              key={`${letter}-${Date.now().toString()}`}
+            />
+          );
         })}
       </ul>
     </>
