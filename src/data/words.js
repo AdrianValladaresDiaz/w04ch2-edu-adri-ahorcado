@@ -1,1 +1,1 @@
-const words = ["aloha", "wololoo"];
+/* const words = ["aloha", "wololoo"]; */

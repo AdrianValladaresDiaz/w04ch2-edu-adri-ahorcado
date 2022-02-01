@@ -1,7 +1,12 @@
 const Letter = ({ letter, actionOnClick }) => {
   return (
-    <li onClick={actionOnClick} className="letter">
-      <a href={letter}>{letter}</a>
+    <li
+      onClick={() => {
+        actionOnClick(letter);
+      }}
+      className="letter"
+    >
+      <a href="#">{letter}</a>
     </li>
   );
 };
