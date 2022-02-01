@@ -30,6 +30,14 @@ function App() {
       letterObj.status = true;
     });
     setSolutionLetters(clonedLetters);
+
+    const cloneAlphabet = alphabetLetters;
+    const alphabetFound = cloneAlphabet.find((e) => {
+      return e.letter === letter;
+    });
+    alphabetFound.used = true;
+    setAlphabetLetters(cloneAlphabet);
+    console.log(cloneAlphabet);
   };
 
   return (
@@ -72,12 +80,12 @@ function App() {
       </section>
       <section className="game-result">You're dead!</section>
       <ul className="letters">
-        {alphabet.map((letter) => {
+        {alphabetLetters.map((letter) => {
           return (
             <Letter
               actionOnClick={letterOnClick}
-              letter={letter}
-              key={`${letter}-${Date.now().toString()}`}
+              letter={letter.letter}
+              key={`${letter.letter}-${Date.now().toString()}`}
             />
           );
         })}
