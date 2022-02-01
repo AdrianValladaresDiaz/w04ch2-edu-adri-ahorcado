@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.scss";
 import Letter from "./components/Letter/Letter";
-
+import GameResult from "./components/GameResult/GameResult";
 import UsedLetter from "./components/UsedLetter/UsedLetter";
 
 import GuessedLetters from "./components/GuessedLetters/GuessedLetters";
@@ -30,6 +30,19 @@ function App() {
 
   const [gameState, setGameState] = useState(undefined);
 
+  const checkIfLost = () => {
+    if (numberOfErrors > 5) {
+      setGameState("lost");
+    }
+  };
+
+  const checkIfWon = () => {
+    const guessedLetters = solutionLetters.filter((letter) => letter.status);
+    if (guessedLetters.length === solutionLetters.length) {
+      setGameState("won");
+    }
+  };
+
   const letterOnClick = (letter) => {
     const clonedLetters = [...solutionLetters];
     const letterFound = clonedLetters.filter((e) => {
@@ -40,6 +53,11 @@ function App() {
     });
     setSolutionLetters(clonedLetters);
 
+    if (!letterFound) {
+      setNumberOfErrors(numberOfErrors + 1);
+    }
+    checkIfWon();
+    checkIfLost();
     const cloneAlphabet = [...alphabetLetters];
     const alphabetFound = cloneAlphabet.find((e) => {
       return e.letter === letter;
@@ -95,7 +113,7 @@ function App() {
           })}
         </ul>
       </section>
-      <section className="game-result">You're dead!</section>
+      <GameResult gameState={gameState} />
       <ul className="letters">
         {alphabetLetters.map((letter) => {
           return (

@@ -16,8 +16,12 @@
 
 # Component List
 
-- Hangman
-- Guessed letters
-- Used Letters
-- All letters
-- Game Result
+- Hangman: Represents, graphically, the game state adn nº of errors.
+
+- Guessed letters: Renders the correctly guessed letters
+
+- Used Letters: Renders all used letters, right or wrong
+
+- All letters: Renders a list of all available letters
+
+- Game Result: Renders the game's result. Win or loss
