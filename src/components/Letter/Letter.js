@@ -1,4 +1,3 @@
-import propTypes from "prop-types";
 import "./Letter.scss";
 
 const Letter = ({ letter, actionOnClick }) => {
@@ -10,7 +9,7 @@ const Letter = ({ letter, actionOnClick }) => {
       }}
       className={`letter${letter.used ? " letter--used" : " letter--unused"}`}
     >
-      <a href="#">{letter.letter}</a>
+      <button>{letter.letter}</button>
     </li>
   );
 };

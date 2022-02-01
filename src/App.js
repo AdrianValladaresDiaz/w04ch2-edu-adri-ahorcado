@@ -53,7 +53,7 @@ function App() {
     });
     setSolutionLetters(clonedLetters);
 
-    if (!letterFound) {
+    if (letterFound.length === 0) {
       setNumberOfErrors(numberOfErrors + 1);
     }
     checkIfWon();
