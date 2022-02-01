@@ -1,8 +1,21 @@
+import { useState } from "react";
 import "./App.scss";
+import Letter from "./components/Letter/Letter";
 import words from "./data/words";
 
 function App() {
-  const word = "acero";
+  const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+  const alphabet = alpha.map((x) => String.fromCharCode(x));
+
+  const word = "acero".match(/.{1,1}/g);
+
+  const [solutionLetters, setSolutionLetters] = useState(
+    word.map((w) => {
+      return { letter: w, status: false };
+    })
+  );
+
+  console.log(solutionLetters);
 
   return (
     <>
@@ -43,7 +56,11 @@ function App() {
         </ul>
       </section>
       <section className="game-result">You're dead!</section>
-      <ul className="letters"></ul>
+      <ul className="letters">
+        {alphabet.map((letter) => {
+          return <Letter letter={letter} />;
+        })}
+      </ul>
     </>
   );
 }
