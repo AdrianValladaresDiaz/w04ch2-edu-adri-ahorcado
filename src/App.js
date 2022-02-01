@@ -21,6 +21,10 @@ function App() {
     })
   );
 
+  const [numberOfErrors, setNumberOfErrors] = useState(0);
+
+  const [gameState, setGameState] = useState(undefined);
+
   const letterOnClick = (letter) => {
     const clonedLetters = [...solutionLetters];
     const letterFound = clonedLetters.filter((e) => {
