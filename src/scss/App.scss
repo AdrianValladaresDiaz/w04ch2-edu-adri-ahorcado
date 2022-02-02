@@ -1,0 +1,17 @@
+@import "Letter.scss";
+@import "Hangman.scss";
+@import "GuessedLetters.scss";
+@import "GameResult.scss";
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Press Start 2P", cursive;
+  background-color: rgba(172, 1, 58, 0.986);
+}
+
+/*  */

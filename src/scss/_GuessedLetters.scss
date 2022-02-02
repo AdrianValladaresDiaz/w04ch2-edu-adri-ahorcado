@@ -1,0 +1,54 @@
+.guess-letters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.guess-letters {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.guess-letter {
+  width: 30px;
+  height: 60px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 33px;
+}
+.guess-letter.empty {
+  border-bottom: 2px solid #000;
+}
+.used-letters {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.used-letters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  & h2 {
+    font-size: 20px;
+    padding: 20px;
+  }
+  & ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+  }
+}
