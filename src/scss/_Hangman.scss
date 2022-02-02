@@ -1,0 +1,22 @@
+.hangman-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg.hangman {
+  width: 18.75rem;
+  height: 18.75rem;
+}
+svg {
+  stroke: #000000;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+  transition: 0.25s;
+}
+
+.stage6 {
+  stroke: rgb(0, 0, 0);
+  fill: white;
+}

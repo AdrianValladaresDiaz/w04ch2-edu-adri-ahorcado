@@ -1,5 +1,3 @@
-import "./Letter.scss";
-
 const Letter = ({ letter, actionOnClick }) => {
   return (
     <li
